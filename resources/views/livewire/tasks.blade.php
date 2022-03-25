@@ -14,7 +14,13 @@
                     <option value="{{$state->id}}">{{$state->name}}</option>
                     @endforeach
                 </select>
+                <button wire:click="generateReport()" class="bg-green-600 px-4 py-2 rounded-md text-white font-semibold tracking-wide cursor-pointer">
+                    Generar reporte
+                </button>
             </div>
+            @if($modalRepo)
+            @include('livewire.repo')
+            @endif
             @if($modal)
             @include('livewire.create')
             @endif

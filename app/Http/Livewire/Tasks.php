@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\State;
 use App\Models\Task;
+use Illuminate\Support\Facades\DB;
 
 class Tasks extends Component
 {
@@ -12,6 +13,7 @@ class Tasks extends Component
     public $states, $name, $start_date, $end_date, $id_state, $id_task, $id_user, $name_state;
     public $modal = false;
     public $selectedState = null;
+    public $modalRepo = false, $dateRepo;
 
     public function render()
     {
@@ -83,5 +85,19 @@ class Tasks extends Component
         ]);
         $this->closeModal();
         $this->cleanInputs();
+    }
+
+    function closeModalRepo(){
+        $this->modalRepo = false;
+        $this->dateRepo = '';
+    }
+
+    function generateReport(){
+        $this->modalRepo = true;
+        $this->dateRepo = DB::table('tasks')
+                ->join('states', 'tasks.id_state', '=', 'states.id')
+                ->select('states.name',DB::raw('count(*) as total'))
+                ->groupBy('states.name')
+                ->get();
     }
 }
