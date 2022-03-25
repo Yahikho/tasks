@@ -3,7 +3,7 @@
         <div class="fixed inset-0 transition-opacity">
             <div class="absolute inset-0 bg-gray-500 opacity-75">
                 <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                    <div class="bg-red px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <table class="table-fixed w-full mt-1.5">
                             <thead>
                                 <tr class="bg-indigo-600 text-white">
