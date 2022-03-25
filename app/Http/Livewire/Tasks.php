@@ -80,7 +80,7 @@ class Tasks extends Component
             'name' => $this->name,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'id_state' => $this->id_state == null ? 1 : $this->id_state,
+            'id_state' => $this->id_state == null ? State::all()->first()->id : $this->id_state,
             'id_user' => $this->id_user
         ]);
         $this->closeModal();
